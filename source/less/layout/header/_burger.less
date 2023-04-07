@@ -1,0 +1,286 @@
+.burger-menu {
+    @media screen and (min-width: @screen-lg) {
+        display: none;
+    }
+    &__icon {
+        @bar-w: 20px;
+        @bar-h: 2px;
+        @bar-color: @grey-bg;
+        position: relative;
+        top: 0;
+        left: 0;
+        margin-left: -(@bar-w / 2);
+        margin-top: -(@bar-w / 2);
+        width: @bar-w;
+        height: 16px;
+        z-index: 51;
+        cursor: pointer;
+        transition: all 0.4s ease-in-out;
+        @media screen and (max-width: @screen-md){
+            top: 50%;
+        }
+
+        b {
+            position: absolute;
+            left: 0;
+            width: @bar-w;
+            height: @bar-h;
+            background-color: @bar-color;
+            transition: all 0.4s ease-in-out;
+
+            &:nth-child(1) {
+                top: 0;
+            }
+            &:nth-child(2) {
+                top: 50%;
+            }
+            &:nth-child(3) {
+                top: 100%;
+            }
+        }
+    }
+    &__header {
+        padding: 32px 0;
+        @media screen and (max-width: @screen-md) {
+            min-height: 0;
+        }
+        @media screen and (max-width: @screen-md) {
+            padding: 20px 0;
+        }
+    }
+    &__content {
+        overflow: auto;
+        color: #fff;
+        position: absolute;
+        z-index: 50;
+        top: 0;
+        right: 0;
+        background: @grey-bg;
+
+        width: 100%;
+        height: 100%;
+        transform: translateY(-100%);
+        opacity: 0;
+        pointer-events: none;
+        transition: 0.4s all ease-in-out;
+    }
+    &__logo {
+        width: 182px;
+        height: 80px;
+        align-self: flex-start;
+
+        img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        @media screen and (max-width: @screen-xl) and (min-width: @screen-lg) {
+            margin-left: 30px;
+        }
+        @media screen and (max-width: @screen-lg) {
+            grid-column-start: 1;
+            grid-column-end: 2;
+        }
+        @media (max-width: @screen-md) {
+            width: 111px;
+            height: 48px;
+        }
+    }
+    &__empty-col {
+        @media screen and (max-width: @screen-xl) {
+            display: none;
+        }
+    }
+    &__container {
+        display: grid;
+        grid-template-rows: minmax(120px, auto) 1fr;
+    }
+    &__body {
+        align-self: center;
+        padding-bottom: 40px;
+        padding-top: 40px;
+    }
+    &__title {
+        font-family: Gilroy;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 32px;
+        line-height: 35px;
+        text-transform: uppercase;
+        margin-bottom: 22px;
+    }
+    &__langs {
+        height: 80px;
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-end;
+        @media screen and (max-width: @screen-lg) {
+            padding-right: 35px;
+        }
+        #switcher-language {
+            margin: 0;
+            font-size: 18px;
+            font-weight: 500;
+            line-height: 1em;
+        }
+        .switcher-trigger {
+            margin-right: 16px;
+        }
+        .switcher-label {
+            display: none;
+        }
+        .switcher-options {
+            margin-bottom: 10px;
+            font-weight: 500;
+            font-size: 18px;
+            display: flex;
+        }
+        .switcher-option {
+            a,
+            a:visited {
+                color: #fff;
+            }
+            a:hover {
+                color: @soft-grey;
+            }
+        }
+        .switcher-dropdown {
+            font-weight: 500;
+            font-size: 18px;
+            display: flex;
+            list-style: none;
+            & > *:not(:last-child) {
+                margin-right: 16px;
+            }
+        }
+    }
+
+    &._active {
+        .burger-menu__content {
+            pointer-events: all;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .burger-menu__container {
+            height: 100vh;
+        }
+        .burger-menu__icon {
+            b {
+                background: #fff;
+            }
+            b:nth-child(1) {
+                transform: rotate(45deg);
+                top: 50%;
+                right: 4px;
+            }
+            b:nth-child(3) {
+                transform: rotate(-45deg);
+                top: 50%;
+                right: 4px;
+            }
+            b:nth-child(2) {
+                display: none;
+            }
+        }
+    }
+
+    &._active-form {
+        .burger-menu__form {
+            display: block;
+        }
+        button.burger-menu__form-button {
+            display: none;
+        }
+        .burger-menu__nav {
+            @media screen and (max-width: @screen-md) {
+                display: none;
+            }
+        }
+        .burger-menu__button-back {
+            @media screen and (max-width: @screen-md) {
+                cursor: pointer;
+                margin-top: 20px;
+                display: flex;
+                align-items: center;
+                color: @soft-grey;
+                font-weight: 500;
+                font-size: 14px;
+                line-height: 22px;
+                &:before {
+                    content: "";
+                    display: block;
+                    background-image: url("data:image/svg+xml,%3Csvg width='25' height='24' viewBox='0 0 25 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M0.569029 11.4891C0.433533 11.6246 0.357411 11.8084 0.35741 12C0.357411 12.1916 0.433533 12.3754 0.569029 12.5109L6.69968 18.6415C6.83517 18.777 7.01895 18.8531 7.21056 18.8531C7.40218 18.8531 7.58596 18.777 7.72145 18.6415C7.85695 18.506 7.93307 18.3222 7.93307 18.1306C7.93307 17.939 7.85695 17.7552 7.72145 17.6197L2.82409 12.7224L23.559 12.7234C23.654 12.7234 23.748 12.7047 23.8358 12.6683C23.9236 12.632 24.0033 12.5787 24.0705 12.5115C24.1377 12.4443 24.191 12.3646 24.2273 12.2768C24.2637 12.189 24.2824 12.095 24.2824 12C24.2824 11.905 24.2637 11.8109 24.2273 11.7231C24.191 11.6354 24.1377 11.5556 24.0705 11.4884C24.0033 11.4213 23.9236 11.368 23.8358 11.3316C23.748 11.2953 23.654 11.2766 23.559 11.2766L2.82409 11.2776L7.72145 6.38021C7.85695 6.24471 7.93307 6.06094 7.93307 5.86932C7.93307 5.6777 7.85695 5.49393 7.72145 5.35843C7.58596 5.22294 7.40218 5.14682 7.21056 5.14681C7.01895 5.14682 6.83517 5.22294 6.69968 5.35843L0.569029 11.4891Z' fill='%23949494'/%3E%3C/svg%3E%0A");
+                    width: 24px;
+                    margin-right: 8px;
+                    height: 24px;
+                }
+            }
+        }
+        .burger-menu__logo {
+            @media screen and (max-width: @screen-md) {
+                display: none;
+            }
+        }
+    }
+    &__form {
+        @media screen and (max-width: @screen-md) {
+            display: none;
+        }
+    }
+    &__button-back {
+        display: none;
+    }
+    button.burger-menu__form-button {
+        margin-top: 50px;
+        @media screen and (max-width: @screen-md){
+            width: 100%;
+        }
+        @media screen and (min-width: @screen-md) {
+            display: none;
+            margin-top: 0;  
+        }
+    }
+}
+.burger-nav {
+    &__list {
+        text-transform: uppercase;
+        & > * {
+            margin-bottom: 35px;
+            @media screen and (max-width: @screen-lg) {
+                margin-bottom: 25px;
+            }
+            @media screen and (max-width: @screen-md) {
+                margin-bottom: 20px;
+            }
+        }
+        &--small-titles {
+            text-transform: none;
+            margin-top: 67px;
+            @media screen and (max-width: @screen-md) {
+                margin-top: 20px;
+                margin-bottom: 20px;
+            }
+            & > * {
+                margin-bottom: 10px;
+            }
+        }
+    }
+    &__title {
+    }
+    &__link {
+        color: inherit;
+        text-decoration: none;
+        transition: 0.3s all ease-in-out;
+        font-size: 32px;
+        line-height: 35px;
+        &:visited {
+            color: inherit;
+            text-decoration: none;
+        }
+        &:hover {
+            text-decoration: none;
+            color: @soft-grey;
+        }
+    }
+}

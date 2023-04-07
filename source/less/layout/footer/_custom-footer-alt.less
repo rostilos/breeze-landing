@@ -1,0 +1,51 @@
+.footer-alt {
+    background: @orange-gradient;
+    padding: 93px 0 82px;
+    color: #fff;
+    font-family: Gilroy;
+
+    font-size: 48px;
+    line-height: 50px;
+    &__body._contact-page-grid {
+        margin-bottom: 0;
+        margin-top: 0;
+    }
+    &__body {
+        @media screen and(max-width: @screen-2xl) {
+            column-gap: 50px !important;
+        }
+        @media screen and (max-width: @screen-lg) {
+            column-gap: 32px !important;
+        }
+    }
+    &__col._section-label{
+        color: #fff;
+        @media screen and (max-width: @screen-xl){
+            grid-column: span 2;
+        }
+    }
+
+    &__title {
+        margin-bottom: 35px;
+        text-transform: uppercase;
+    }
+    &__text {
+        font-family: Gilroy;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: calc(28 / 18 * 1em);
+        @media screen and (max-width: @screen-md) {
+            font-size: 14px;
+        }
+    }
+    @media screen and (max-width: @screen-md) {
+        padding: 60px 0 60p;
+    }
+    @media screen and (max-width: @screen-sm) {
+        padding: 40px 0 40px;
+    }
+    @media screen and (max-width: @screen-sm) {
+        padding: 20px 0 20px;
+    }
+}

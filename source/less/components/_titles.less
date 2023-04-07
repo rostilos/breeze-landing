@@ -1,0 +1,107 @@
+/* Common layout styles */
+h1,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  margin: 0;
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+}
+
+.h1 {
+  text-transform: uppercase;
+  font-size: 56px;
+  line-height: 72px;
+}
+.h2 {
+  font-size: 48px;
+  line-height: 56px;
+}
+.h3 {
+  font-size: 32px;
+  line-height: 40px;
+}
+.h4 {
+  font-size: 24px;
+  line-height: 32px;
+}
+.caption {
+  font-size: 12px;
+  line-height: 18px;
+}
+.body-16 {
+  font-size: 16px;
+  line-height: 24px;
+}
+._section-title{
+  @media screen and (max-width: @screen-lg){
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: @screen-xl) {
+  .h1 {
+    text-transform: uppercase;
+    font-size: 48px;
+    line-height: 60px;
+  }
+  .h2 {
+    font-size: 36px;
+    line-height: 44px;
+  }
+  .h3 {
+    font-size: 26px;
+    line-height: 32px;
+  }
+  .h4 {
+    font-size: 22px;
+    line-height: 28px;
+  }
+}
+
+@media screen and (max-width: @screen-lg) {
+  .h1 {
+    text-transform: uppercase;
+    font-size: 36px;
+    line-height: 48px;
+  }
+  .h2 {
+    font-size: 32px;
+    line-height: 40px;
+  }
+  .h3 {
+    font-size: 24px;
+    line-height: 32px;
+  }
+  .h4 {
+    font-size: 20px;
+    line-height: 24px;
+  }
+}
+
+@media screen and (max-width: @screen-md) {
+  .h1 {
+    font-size: 28px;
+    line-height: 38px;
+  }
+  .h2 {
+    font-size: 28px;
+    line-height: 32px;
+  }
+  .h3 {
+    font-size: 22px;
+    line-height: 30px;
+  }
+  .h4 {
+    font-size: 18px;
+    line-height: 26px;
+  }
+}
