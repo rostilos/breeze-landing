@@ -13,12 +13,12 @@
   }
 }
 .page-header__logo {
-    @media screen and (max-width: @screen-lg){
-        width: 180px;
-    }
-    @media screen and (max-width: @screen-sm){
-        width: 111px;
-    }
+  @media screen and (max-width: @screen-lg) {
+    width: 180px;
+  }
+  @media screen and (max-width: @screen-sm) {
+    width: 111px;
+  }
 }
 .page-header__nav {
   display: flex;
@@ -36,8 +36,12 @@
   font-size: 24px;
   flex-grow: 1;
   line-height: 32px;
-  @media screen and (max-width: @screen-xl) {
+  text-align: right;
+  @media screen and (max-width: @screen-2xl) {
     font-size: 20px;
     line-height: 28px;
+  }
+  @media screen and (max-width: @screen-xl) {
+    font-size: 18px;
   }
 }

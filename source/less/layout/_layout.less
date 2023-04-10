@@ -1,55 +1,57 @@
 /* Удаление стандартных стилей для wrappera magento*/
-#maincontent.page-main, footer .footer.content{
-    margin-left: 0;
-    margin-right: 0;
-    max-width: none;
-    padding-left: 0;
-    padding-right: 0;
+#maincontent.page-main,
+footer .footer.content {
+  margin-left: 0;
+  margin-right: 0;
+  max-width: none;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 /* Стили для ограничивающего контейнера на странице */
 ._container {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 0 320px;
-    @media screen and (max-width: @screen-2xl) {
-        padding: 0 130px;
-    }
-    @media screen and (max-width: @screen-xl) {
-        padding: 0 80px;
-    }
-    @media screen and (max-width: @screen-md) {
-        padding: 0 40px;
-    }
-    @media screen and (max-width: @screen-sm) {
-        padding: 0 16px;
-    }
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 320px;
+  @media screen and (max-width: @screen-3xl) {
+    padding: 0 150px;
+  }
+  @media screen and (max-width: @screen-2xl) {
+    padding: 0 130px;
+  }
+  @media screen and (max-width: @screen-xl) {
+    padding: 0 80px;
+  }
+  @media screen and (max-width: @screen-md) {
+    padding: 0 40px;
+  }
+  @media screen and (max-width: @screen-sm) {
+    padding: 0 16px;
+  }
 }
 
 /* GRIDS FOR PAGES LAYOUT*/
-._grid-2-col{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    column-gap: 64px;
-    @media screen and (max-width: @screen-xl){
-        column-gap: 40px;
-    }
-    @media screen and (max-width: @screen-lg){
-        display: block;
-
-    }
-    &__col{
-        
-    }
+._grid-2-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 64px;
+  @media screen and (max-width: @screen-xl) {
+    column-gap: 40px;
+  }
+  @media screen and (max-width: @screen-lg) {
+    display: block;
+  }
+  &__col {
+  }
 }
-._grid-3-col{
-    display: grid;
-    grid-template-columns: 120px 1fr 1fr;
-    column-gap: 80px;
-    @media screen and (max-width: @screen-xl){
-        grid-template-columns: 1fr 1fr;
-    }
-    @media screen and (max-width: @screen-md){
-        display: block;
-    }
+._grid-3-col {
+  display: grid;
+  grid-template-columns: 120px 1fr 1fr;
+  column-gap: 80px;
+  @media screen and (max-width: @screen-xl) {
+    grid-template-columns: 1fr 1fr;
+  }
+  @media screen and (max-width: @screen-md) {
+    display: block;
+  }
 }

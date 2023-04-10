@@ -35,6 +35,7 @@ function initForm(config) {
       formData.append("form_key", this.getFormKey());
 
       const request = new XMLHttpRequest();
+      console.log('test');
 
       request.onreadystatechange = () => {
         if (request.readyState === XMLHttpRequest.DONE) {

@@ -2,275 +2,333 @@
 @clip-animation-rule: clip 0.3s ease-in-out;
 
 ._button:extend(.h5) {
-    display: flex;
-    position: relative;
-    font-weight: 400;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    justify-content: center;
-    align-items: center;
-    padding: 11px 31.5px;
-    border: 1px solid @main-orange;
-    box-sizing: border-box;
-    border-radius: 30px;
-    background: inherit;
+  display: flex;
+  position: relative;
+  font-weight: 400;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  justify-content: center;
+  align-items: center;
+  padding: 11px 31.5px;
+  border: 1px solid @main-orange;
+  box-sizing: border-box;
+  border-radius: 30px;
+  background: inherit;
+  transition: @animation-rule;
+  overflow: hidden;
+  cursor: pointer;
+
+  ._button__overlay {
+    content: "";
+    display: block;
+    height: 100%;
+    width: 100%;
+    position: absolute;
     transition: @animation-rule;
-    overflow: hidden;
-    cursor: pointer;
+    border-radius: 30px;
+    z-index: 2;
+    &--hover {
+      z-index: 2;
+      transform: translateX(-100%);
+      background: @orange-gradient;
+    }
+    &--active {
+      z-index: 3;
+      background: @grey-bg;
+      opacity: 0;
+    }
+  }
 
-    ._button__overlay {
-        content: "";
-        display: block;
-        height: 100%;
-        width: 100%;
-        position: absolute;
-        transition: @animation-rule;
-        border-radius: 30px;
-        z-index: 2;
-        &--hover {
-            z-index: 2;
-            transform: translateX(-100%);
-            background: @orange-gradient;
-        }
-        &--active {
-            z-index: 3;
-            background: @grey-bg;
-            opacity: 0;
-        }
+  &.active {
+    border: 0;
+    ._button__overlay--active {
+      opacity: 1;
     }
+    ._button--arrow::after {
+      transition: all 0.4s ease-in-out;
+      filter: invert(1);
+    }
+  }
+  @media (any-hover: hover) {
+    &:not(.active):hover {
+      border: 1px solid @main-orange;
+      background: transparent;
+      ._button__icon-arrow {
+        filter: invert(100%);
+      }
+    }
+    &:hover {
+      ._button__overlay--hover {
+        transform: translateX(0);
+      }
+    }
+  }
+  @media (any-hover: none) {
+    &:hover {
+      background: inherit;
+    }
+    &:not(.active):hover {
+      border-color: @main-orange;
+      ._button__text-overlay {
+        z-index: -1;
+      }
+    }
+  }
 
-    &.active {
-        border: 0;
-        ._button__overlay--active {
-            opacity: 1;
-        }
-        ._button--arrow::after {
-            transition: all 0.4s ease-in-out;
-            filter: invert(1);
-        }
-    }
-    @media (any-hover: hover) {
-        &:not(.active):hover {
-            border: 1px solid @main-orange;
-            background: transparent;
-            ._button__icon-arrow {
-                filter: invert(100%);
-            }
-        }
-        &:hover {
-            ._button__overlay--hover {
-                transform: translateX(0);
-            }
-        }
-    }
-    @media (any-hover: none) {
-        &:hover {
-            background: inherit;
-        }
-        &:not(.active):hover {
-            border-color: @main-orange;
-            ._button__text-overlay {
-                z-index: -1;
-            }
-        }
-    }
+  &__icon-arrow {
+    margin-left: 12px;
+  }
 
-    &__icon-arrow {
-        margin-left: 12px;
+  &__text-overlay {
+    width: 100%;
+    position: absolute;
+    z-index: 4;
+    top: 50%;
+    clip: rect(0px 0px 24px 0px);
+    transform: translate3d(0px, -50%, 1px);
+    transition: @clip-animation-rule;
+    color: #fff;
+    &--black {
+      color: @grey-bg;
     }
-
-    &__text-overlay {
-        width: 100%;
-        position: absolute;
-        z-index: 4;
-        top: 50%;
-        clip: rect(0px 0px 24px 0px);
-        transform: translate3d(0px, -50%, 1px);
-        transition: @clip-animation-rule;
-        color: #fff;
-        &--black {
-            color: @grey-bg;
-        }
+  }
+  &__text,
+  &__text-overlay {
+    font-size: 16px;
+    line-height: 24px;
+    @media screen and (max-width: @screen-md) {
+      font-size: 14px;
+      line-height: 20px;
     }
-    &__text,
-    &__text-overlay {
-        font-size: 16px;
-        line-height: 24px;
-        @media screen and (max-width: @screen-md) {
-            font-size: 14px;
-            line-height: 20px;
-        }
-    }
-    &__loader {
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        top: 0;
-        background-color: rgba(255, 255, 255, 0.5);
-        left: 0;
-        z-index: 10;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+  }
+  &__loader {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    background-color: rgba(255, 255, 255, 0.5);
+    left: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 ._button--white {
-    border-color: #fff;
-    color: #fff;
+  border-color: #fff;
+  color: #fff;
 
-    ._button__overlay {
-        &--hover {
-            z-index: 2;
-            transform: translateX(-100%);
-            background: #fff;
-        }
-        &--active {
-            z-index: 3;
-            background: #cdcdcd;
-            border-color: #cdcdcd !important;
-            opacity: 0;
-        }
+  ._button__overlay {
+    &--hover {
+      z-index: 2;
+      transform: translateX(-100%);
+      background: #fff;
+    }
+    &--active {
+      z-index: 3;
+      background: #cdcdcd;
+      border-color: #cdcdcd !important;
+      opacity: 0;
+    }
+  }
+  &.active {
+    ._button__overlay--active {
+      opacity: 1;
+    }
+  }
+  &:active {
+    ._button--white:after {
+      filter: invert(100%);
+    }
+  }
+  @media (any-hover: hover) {
+    &:not(.active):hover {
+      border-color: #fff;
+    }
+    &:hover {
+      ._button__overlay--hover {
+        transform: translateX(0);
+      }
+    }
+  }
+  @media (any-hover: none) {
+    &:not(.active):hover {
+      background: inherit;
+      color: #fff;
+      border-color: #fff;
     }
     &.active {
-        ._button__overlay--active {
-            opacity: 1;
-        }
+      color: @grey-bg;
     }
-    &:active {
-        ._button--white:after {
-            filter: invert(100%);
-        }
+  }
+}
+._button--white-bg {
+  border-color: #fff;
+  color: @dark-grey;
+  background-color: #fff;
+
+  ._button__text-overlay {
+    color: #fff;
+  }
+  ._button__overlay {
+    &--hover {
+      z-index: 2;
+      transform: translateX(-100%);
+      background: @orange-gradient;
+      color: #fff;
     }
-    @media (any-hover: hover) {
-        &:not(.active):hover {
-            border-color: #fff;
-        }
-        &:hover {
-            ._button__overlay--hover {
-                transform: translateX(0);
-            }
-        }
+    &--active {
+      z-index: 3;
+      color: #fff;
+      background: #cdcdcd;
+      border-color: #cdcdcd !important;
+      opacity: 0;
     }
-    @media (any-hover: none) {
-        &:not(.active):hover {
-            background: inherit;
-            color: #fff;
-            border-color: #fff;
-        }
-        &.active {
-            color: @grey-bg;
-        }
+  }
+  &.active {
+    ._button__overlay--active {
+      opacity: 1;
     }
+    ._button__text-overlay {
+        color: @dark-grey;
+      }
+  }
+  &:active {
+    ._button--white:after {
+      filter: invert(100%);
+    }
+  }
+  @media (any-hover: hover) {
+    &:not(.active):hover {
+      border-color: #fff;
+      color: #fff;
+    }
+    &:hover {
+      ._button__overlay--hover {
+        transform: translateX(0);
+      }
+    }
+  }
+  @media (any-hover: none) {
+    &:not(.active):hover {
+      background: #fff;
+      color: @dark-grey;
+      border-color: #fff;
+    }
+    &.active {
+      color: @grey-bg;
+    }
+  }
 }
 ._button--orange-bg {
-    background: @orange-gradient;
+  background: @orange-gradient;
+  color: #fff;
+  border: 1px solid #fff;
+  ._button__text {
     color: #fff;
-    border: 1px solid #fff;
-    ._button__text {
-        color: #fff;
-        position: relative;
-        z-index: 6;
+    position: relative;
+    z-index: 6;
+  }
+  ._button__overlay {
+    &--hover {
+      z-index: 2;
+      transform: translateX(-100%);
+      background: @grey-bg;
     }
-    ._button__overlay {
-        &--hover {
-            z-index: 2;
-            transform: translateX(-100%);
-            background: @grey-bg;
-        }
-        &--active {
-            z-index: 3;
-            background: @dark-grey;
-            border-color: @dark-grey !important;
-            opacity: 0;
-        }
+    &--active {
+      z-index: 3;
+      background: @dark-grey;
+      border-color: @dark-grey !important;
+      opacity: 0;
     }
-    &.active {
-        ._button__overlay--active {
-            opacity: 1;
-        }
+  }
+  &.active {
+    ._button__overlay--active {
+      opacity: 1;
     }
-    @media (any-hover: hover) {
-        &:not(.active):hover {
-            border-color: @grey-bg;
-            background: @orange-gradient;
-        }
-        &:hover {
-            ._button__overlay--hover {
-                transform: translateX(0);
-            }
-        }
+  }
+  @media (any-hover: hover) {
+    &:not(.active):hover {
+      border-color: @grey-bg;
+      background: @orange-gradient;
     }
-    @media (any-hover: none) {
-        &:not(.active):hover {
-            background: @orange-gradient;
-            color: #fff;
-            border-color: @orange-gradient;
-        }
+    &:hover {
+      ._button__overlay--hover {
+        transform: translateX(0);
+      }
     }
+  }
+  @media (any-hover: none) {
+    &:not(.active):hover {
+      background: @orange-gradient;
+      color: #fff;
+      border-color: @orange-gradient;
+    }
+  }
 
-    &:active {
-        background-color: rgb(250, 245, 245) !important;
-    }
+  &:active {
+    background-color: rgb(250, 245, 245) !important;
+  }
 }
 
 ._button--arrow {
-    &._button {
-        @media (any-hover: hover) {
-            &.active:after,
-            &:active::after,
-            &:hover::after,
-            &:focus::after {
-                z-index: 4;
-                filter: invert(100%);
-            }
-        }
+  &._button {
+    @media (any-hover: hover) {
+      &.active:after,
+      &:active::after,
+      &:hover::after,
+      &:focus::after {
+        z-index: 4;
+        filter: invert(100%);
+      }
     }
-    &._button {
-        &:after {
-            content: "";
-            display: block;
-            width: 24px;
-            height: 24px;
-            margin-left: 15px;
-            background-image: url("data:image/svg+xml,%3Csvg width='25' height='24' viewBox='0 0 25 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M24.3528 11.4891C24.4883 11.6246 24.5645 11.8084 24.5645 12C24.5645 12.1916 24.4883 12.3754 24.3528 12.5109L18.2222 18.6415C18.0867 18.777 17.9029 18.8532 17.7113 18.8532C17.5197 18.8532 17.3359 18.777 17.2004 18.6415C17.0649 18.506 16.9888 18.3223 16.9888 18.1306C16.9888 17.939 17.0649 17.7553 17.2004 17.6198L22.0978 12.7224L1.36291 12.7234C1.26791 12.7234 1.17384 12.7047 1.08607 12.6683C0.998301 12.632 0.918552 12.5787 0.851377 12.5115C0.784201 12.4444 0.730915 12.3646 0.69456 12.2768C0.658205 12.1891 0.639493 12.095 0.639493 12C0.639493 11.905 0.658205 11.8109 0.69456 11.7232C0.730915 11.6354 0.784201 11.5556 0.851377 11.4885C0.918552 11.4213 0.998301 11.368 1.08607 11.3317C1.17384 11.2953 1.26791 11.2766 1.36291 11.2766L22.0978 11.2776L17.2004 6.38024C17.0649 6.24474 16.9888 6.06097 16.9888 5.86935C16.9888 5.67773 17.0649 5.49396 17.2004 5.35846C17.3359 5.22297 17.5197 5.14685 17.7113 5.14685C17.9029 5.14685 18.0867 5.22297 18.2222 5.35846L24.3528 11.4891Z' fill='%233D3C3C'/%3E%3C/svg%3E%0A");
-            z-index: 4;
-        }
+  }
+  &._button {
+    &:after {
+      content: "";
+      display: block;
+      width: 24px;
+      height: 24px;
+      margin-left: 15px;
+      background-image: url("data:image/svg+xml,%3Csvg width='25' height='24' viewBox='0 0 25 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M24.3528 11.4891C24.4883 11.6246 24.5645 11.8084 24.5645 12C24.5645 12.1916 24.4883 12.3754 24.3528 12.5109L18.2222 18.6415C18.0867 18.777 17.9029 18.8532 17.7113 18.8532C17.5197 18.8532 17.3359 18.777 17.2004 18.6415C17.0649 18.506 16.9888 18.3223 16.9888 18.1306C16.9888 17.939 17.0649 17.7553 17.2004 17.6198L22.0978 12.7224L1.36291 12.7234C1.26791 12.7234 1.17384 12.7047 1.08607 12.6683C0.998301 12.632 0.918552 12.5787 0.851377 12.5115C0.784201 12.4444 0.730915 12.3646 0.69456 12.2768C0.658205 12.1891 0.639493 12.095 0.639493 12C0.639493 11.905 0.658205 11.8109 0.69456 11.7232C0.730915 11.6354 0.784201 11.5556 0.851377 11.4885C0.918552 11.4213 0.998301 11.368 1.08607 11.3317C1.17384 11.2953 1.26791 11.2766 1.36291 11.2766L22.0978 11.2776L17.2004 6.38024C17.0649 6.24474 16.9888 6.06097 16.9888 5.86935C16.9888 5.67773 17.0649 5.49396 17.2004 5.35846C17.3359 5.22297 17.5197 5.14685 17.7113 5.14685C17.9029 5.14685 18.0867 5.22297 18.2222 5.35846L24.3528 11.4891Z' fill='%233D3C3C'/%3E%3C/svg%3E%0A");
+      z-index: 4;
     }
-    &._button--white,
-    &._button--orange-bg {
-        &:after {
-            content: "";
-            display: block;
-            width: 24px;
-            height: 24px;
-            margin-left: 15px;
-            background-image: url("data:image/svg+xml,%3Csvg width='25' height='25' viewBox='0 0 25 25' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M23.9778 12.2955C24.1133 12.431 24.1895 12.6148 24.1895 12.8064C24.1895 12.998 24.1133 13.1818 23.9778 13.3173L17.8472 19.4479C17.7117 19.5834 17.5279 19.6596 17.3363 19.6596C17.1447 19.6596 16.9609 19.5834 16.8254 19.4479C16.6899 19.3124 16.6138 19.1287 16.6138 18.937C16.6138 18.7454 16.6899 18.5617 16.8254 18.4262L21.7228 13.5288L0.987909 13.5298C0.892909 13.5298 0.798839 13.5111 0.71107 13.4747C0.623301 13.4384 0.543552 13.3851 0.476377 13.3179C0.409201 13.2508 0.355915 13.171 0.31956 13.0832C0.283205 12.9955 0.264493 12.9014 0.264493 12.8064C0.264493 12.7114 0.283205 12.6173 0.31956 12.5296C0.355915 12.4418 0.409201 12.362 0.476377 12.2949C0.543552 12.2277 0.623301 12.1744 0.71107 12.138C0.798839 12.1017 0.892909 12.083 0.987909 12.083L21.7228 12.084L16.8254 7.18663C16.6899 7.05114 16.6138 6.86737 16.6138 6.67575C16.6138 6.48413 16.6899 6.30035 16.8254 6.16486C16.9609 6.02936 17.1447 5.95324 17.3363 5.95324C17.5279 5.95324 17.7117 6.02936 17.8472 6.16486L23.9778 12.2955Z' fill='white'/%3E%3C/svg%3E%0A");
-            z-index: 4;
-        }
+  }
+  &._button--white,
+  &._button--orange-bg {
+    &:after {
+      content: "";
+      display: block;
+      width: 24px;
+      height: 24px;
+      margin-left: 15px;
+      background-image: url("data:image/svg+xml,%3Csvg width='25' height='25' viewBox='0 0 25 25' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M23.9778 12.2955C24.1133 12.431 24.1895 12.6148 24.1895 12.8064C24.1895 12.998 24.1133 13.1818 23.9778 13.3173L17.8472 19.4479C17.7117 19.5834 17.5279 19.6596 17.3363 19.6596C17.1447 19.6596 16.9609 19.5834 16.8254 19.4479C16.6899 19.3124 16.6138 19.1287 16.6138 18.937C16.6138 18.7454 16.6899 18.5617 16.8254 18.4262L21.7228 13.5288L0.987909 13.5298C0.892909 13.5298 0.798839 13.5111 0.71107 13.4747C0.623301 13.4384 0.543552 13.3851 0.476377 13.3179C0.409201 13.2508 0.355915 13.171 0.31956 13.0832C0.283205 12.9955 0.264493 12.9014 0.264493 12.8064C0.264493 12.7114 0.283205 12.6173 0.31956 12.5296C0.355915 12.4418 0.409201 12.362 0.476377 12.2949C0.543552 12.2277 0.623301 12.1744 0.71107 12.138C0.798839 12.1017 0.892909 12.083 0.987909 12.083L21.7228 12.084L16.8254 7.18663C16.6899 7.05114 16.6138 6.86737 16.6138 6.67575C16.6138 6.48413 16.6899 6.30035 16.8254 6.16486C16.9609 6.02936 17.1447 5.95324 17.3363 5.95324C17.5279 5.95324 17.7117 6.02936 17.8472 6.16486L23.9778 12.2955Z' fill='white'/%3E%3C/svg%3E%0A");
+      z-index: 4;
     }
-    &._button--white {
-        &:not(.active):hover {
-            border-color: #fff;
-        }
-        @media (any-hover: hover) {
-            &.active:after,
-            &:active::after,
-            &:hover::after,
-            &:focus::after {
-                z-index: 4;
-                filter: invert(100%);
-            }
-        }
-        @media (any-hover: none) {
-            &.active:after {
-                z-index: 4;
-                filter: invert(100%);
-            }
-        }
+  }
+  &._button--white {
+    &:not(.active):hover {
+      border-color: #fff;
     }
+    @media (any-hover: hover) {
+      &.active:after,
+      &:active::after,
+      &:hover::after,
+      &:focus::after {
+        z-index: 4;
+        filter: invert(100%);
+      }
+    }
+    @media (any-hover: none) {
+      &.active:after {
+        z-index: 4;
+        filter: invert(100%);
+      }
+    }
+  }
 
-    ._button__text-overlay {
-        left: unset;
-        right: 20px;
-    }
+  ._button__text-overlay {
+    left: unset;
+    right: 20px;
+  }
 }

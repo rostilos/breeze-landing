@@ -9,6 +9,9 @@
     <script src="js/vendors/alpine.min.js" defer></script>
     <script src="js/forms.js" type="text/javascript"></script>
     <script src="js/anchors.js" type="text/javascript"></script>
+    <script src="js/button-animation.js" type="text/javascript"></script>
+    <script src="js/form-validation.js" type="text/javascript"></script>
+    <script src="js/cookies.js" type="text/javascript"></script>
 
     <script src="js/vendors/pristine.min.js"></script>
     <script>
@@ -121,7 +124,7 @@
                     <div class="burger-menu__col burger-menu__form">
                       <div>
                         <div data-form-hire_header="form" x-show="showForm">
-                          <div class="burger-menu__title">Get In Touch</div>
+                          <div class="burger-menu__title _scrollTo" href="section-contacts">Get In Touch</div>
                           <form
                             id="form_hire_header"
                             action="https://perspectiveteam.com/perspective_forms/index/submit/"
@@ -270,7 +273,7 @@
                       <span class="_text-italic">for Magento 2</span>
                     </span>
                   </h1>
-                  <a href="#footer-alt" class="section-intro__button _button _button--orange-bg _scrollTo">
+                  <a href="#section-contacts" class="section-intro__button _button _button--orange-bg _scrollTo">
                     <h5 class="h5 _button__text">Get in touch</h5>
                     <span class="_button__overlay _button__overlay--hover"></span>
                     <span class="_button__overlay _button__overlay--active"></span>
@@ -374,11 +377,7 @@
                   <ul class="section-certification__list">
                     <li class="section-certification__item adobe-cerfification">
                       <div class="adobe-cerfification__image adobe-cerfification__image--bronze">
-                        <img
-                          src="./media/cert/1.png"
-                          alt=""
-                          height="144px"
-                        />
+                        <img src="./media/cert/1.png" alt="" height="144px" />
                       </div>
                       <div class="adobe-certification__content">
                         <h5 class="adobe-cerfification__title h4"></h5>
@@ -426,11 +425,14 @@
               <div class="section-certification__content">
                 <div class="section-certification__badges cert-badges">
                   <div class="cert-badges__item cert-badges__item--core">
-                    <img src="./media/cert/2-1.png" alt="" />
-                    <p>Magento Core Contributors</p>
+                    <img class="dt" src="./media/cert/2-0.svg" alt="" />
+                    <img class="mob" src="./media/cert/2-0-mob.svg" alt="" />
+                  </div>
+                  <div class="cert-badges__item cert-badges__item--core">
+                    <img class="mob" src="./media/cert/2-1-mob.svg" alt="" />
                   </div>
                   <div class="cert-badges__item">
-                    <img src="./media/cert/2-2.png" alt="" />
+                    <img src="./media/cert/2-2.svg" alt="" />
                   </div>
                   <div class="cert-badges__item">
                     <img src="./media/cert/2-3.svg" alt="" />
@@ -462,78 +464,77 @@
                   <div class="cert-badges__item">
                     <img src="./media/cert/2-12.svg" alt="" />
                   </div>
+                  <div class="cert-badges__item cert-badges__item--empty"></div>
                 </div>
               </div>
             </div>
           </section>
           <section class="page__section section-services">
             <div class="section-services__container _container">
-              <h2 class="section-services__title _section-title">Our Services</h2>
-              <div class="section-services__content _grid-2-col">
-                <div class="_grid-2-col__col">
+              <div class="section-services__body">
+                <h2 class="section-services__title _section-title h2">Our Services</h2>
+                <div class="section-services__content">
                   <ul class="section-services__list services-list">
                     <li class="services-list__item">
                       <div class="services-list__image">
-                        <img src="" alt="" />
+                        <img src="./media/services/1.svg" alt="" />
                       </div>
-                      <div class="services-list__title">Web Design</div>
+                      <div class="services-list__title h4">Web Design</div>
                     </li>
                     <li class="services-list__item">
                       <div class="services-list__image">
-                        <img src="" alt="" />
+                        <img src="./media/services/2.svg" alt="" />
                       </div>
-                      <div class="services-list__title">Magento Development</div>
+                      <div class="services-list__title h4">Magento Development</div>
                     </li>
                     <li class="services-list__item">
                       <div class="services-list__image">
-                        <img src="" alt="" />
+                        <img src="./media/services/3.svg" alt="" />
                       </div>
-                      <div class="services-list__title">Magento 2 Migration</div>
+                      <div class="services-list__title h4">Magento 2 Migration</div>
                     </li>
                     <li class="services-list__item">
                       <div class="services-list__image">
-                        <img src="" alt="" />
+                        <img src="./media/services/4.svg" alt="" />
                       </div>
-                      <div class="services-list__title">Magento PWA</div>
-                    </li>
-                  </ul>
-                </div>
-                <div class="_grid-2-col__col">
-                  <ul class="section-services__list services-list">
-                    <li class="services-list__item">
-                      <div class="services-list__image">
-                        <img src="" alt="" />
-                      </div>
-                      <div class="services-list__title">Magento Security Audit</div>
+                      <div class="services-list__title h4">Magento PWA</div>
                     </li>
                     <li class="services-list__item">
                       <div class="services-list__image">
-                        <img src="" alt="" />
+                        <img src="./media/services/5.svg" alt="" />
                       </div>
-                      <div class="services-list__title">Magento Support</div>
+                      <div class="services-list__title h4">Magento Security Audit</div>
                     </li>
                     <li class="services-list__item">
                       <div class="services-list__image">
-                        <img src="" alt="" />
+                        <img src="./media/services/6.svg" alt="" />
                       </div>
-                      <div class="services-list__title">Server & Magento Optimization</div>
+                      <div class="services-list__title h4">Magento Support</div>
                     </li>
                     <li class="services-list__item">
                       <div class="services-list__image">
-                        <img src="" alt="" />
+                        <img src="./media/services/7.svg" alt="" />
                       </div>
-                      <div class="services-list__title">Implementation Google Analytics 4</div>
+                      <div class="services-list__title h4">Server & Magento Optimization</div>
+                    </li>
+                    <li class="services-list__item">
+                      <div class="services-list__image">
+                        <img src="./media/services/8.svg" alt="" />
+                      </div>
+                      <div class="services-list__title h4">Implementation Google Analytics 4</div>
                     </li>
                   </ul>
                 </div>
               </div>
             </div>
           </section>
-          <section id="section-faq" class="page__section section-faq">
+          <section id="section-faq" class="page__section section-faq" x-data="{selected:null}">
             <div class="section-faq__container _container">
-              <h2 class="section-faq__title _section-title">PayPal Checkout. What it offers</h2>
+              <h2 class="section-faq__title _section-title h2" style="text-align: center">
+                PayPal Checkout. What it offers
+              </h2>
               <div class="section-faq__content">
-                <div class="section-faq__collapsible _collabsible">
+                <div class="section-faq__collapsible _collapsible">
                   <!-- 1 -->
                   <div data-role="collapsible" class="_collapsible__item" :class="{'active': selected == 1}">
                     <div
@@ -543,10 +544,8 @@
                     >
                       <div class="_collapsible__header">
                         <h4 class="h4 _collapsible__title" itemtype="https://schema.org/Question">
-                          <span class="_text-orange" style="margin-right: 8px">1.</span>
-                          <span class="font-medium" itemprop="name"
-                            >Is ChatGPT challenging to set up and use for eCommerce businesses?</span
-                          >
+                          <span class="_text-orange font-regular" style="margin-right: 8px">01.</span>
+                          <span class="font-medium" itemprop="name">Can I use Breeze with my Luma-based theme?</span>
                         </h4>
                       </div>
                       <span class="_collapsible__plus-sign"></span>
@@ -558,11 +557,12 @@
                     x-ref="container1"
                     x-bind:style="selected == 1 ? 'max-height: ' + $refs.container1.scrollHeight + 'px' : ''"
                   >
-                    <div class="_collapsible__content" style="display: block" itemtype="https://schema.org/Answer">
+                    <div class="_collapsible__content" style="display: flex" itemtype="https://schema.org/Answer">
+                      <div class="_collapsible__empty"></div>
                       <div class="_collapsible__col">
                         <p class="article__text" itemprop="text">
-                          Setting up ChatGPT may require technical expertise, but it can be relatively easy to use once
-                          properly configured and integrated into your eCommerce platform.
+                          Yes, you can install the swissup/breeze module separately to use Breeze with your Luma-based
+                          theme.
                         </p>
                       </div>
                     </div>
@@ -577,10 +577,8 @@
                     >
                       <div class="_collapsible__header">
                         <h4 class="h4 _collapsible__title" itemtype="https://schema.org/Question">
-                          <span class="_text-orange" style="margin-right: 8px">2.</span>
-                          <span class="font-medium" itemprop="name"
-                            >Can ChatGPT replace human customer support staff entirely?</span
-                          >
+                          <span class="_text-orange font-regular" style="margin-right: 8px">02.</span>
+                          <span class="font-medium" itemprop="name">Will my current modules work with Breeze? </span>
                         </h4>
                       </div>
                       <span class="_collapsible__plus-sign"></span>
@@ -592,12 +590,12 @@
                     x-ref="container2"
                     x-bind:style="selected == 2 ? 'max-height: ' + $refs.container2.scrollHeight + 'px' : ''"
                   >
-                    <div class="_collapsible__content" style="display: block" itemtype="https://schema.org/Answer">
+                    <div class="_collapsible__content" style="display: flex" itemtype="https://schema.org/Answer">
+                      <div class="_collapsible__empty"></div>
                       <div class="_collapsible__col">
                         <p class="article__text" itemprop="text">
-                          While ChatGPT can be a powerful tool for automating customer support, it is unlikely to
-                          replace human staff completely. Instead, ChatGPT can supplement and enhance human customer
-                          support staff, allowing them to focus on more complex or high-priority support requests.
+                          Modules that don't rely on JS will work with Breeze. However, modules that utilize JS may
+                          require integration efforts to function correctly
                         </p>
                       </div>
                     </div>
@@ -612,11 +610,8 @@
                     >
                       <div class="_collapsible__header">
                         <h4 class="h4 _collapsible__title" itemtype="https://schema.org/Question">
-                          <span class="_text-orange" style="margin-right: 8px">3.</span>
-                          <span class="font-medium" itemprop="name"
-                            >How can businesses ensure that ChatGPT provides accurate and helpful responses to customer
-                            inquiries?</span
-                          >
+                          <span class="_text-orange font-regular" style="margin-right: 8px">03.</span>
+                          <span class="font-medium" itemprop="name">How do I integrate my modules with Breeze?</span>
                         </h4>
                       </div>
                       <span class="_collapsible__plus-sign"></span>
@@ -628,13 +623,82 @@
                     x-ref="container3"
                     x-bind:style="selected == 3 ? 'max-height: ' + $refs.container3.scrollHeight + 'px' : ''"
                   >
-                    <div class="_collapsible__content" style="display: block" itemtype="https://schema.org/Answer">
+                    <div class="_collapsible__content" style="display: flex" itemtype="https://schema.org/Answer">
+                      <div class="_collapsible__empty"></div>
                       <div class="_collapsible__col">
                         <p class="article__text" itemprop="text">
-                          To ensure that ChatGPT provides accurate and helpful responses, businesses should regularly
-                          monitor and update their ChatGPT algorithms and response scripts. They should also have a plan
-                          for handling more complex or challenging support requests that ChatGPT may not be able to
-                          handle on its own.
+                          We recommend hiring a professional developer for this task. You can also refer to our
+                          integration tips available in the documentation.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- 4 -->
+                  <div data-role="collapsible" class="_collapsible__item" :class="{'active': selected == 4}">
+                    <div
+                      data-role="trigger"
+                      class="_collapsible__trigger"
+                      @click="selected !== 4 ? selected = 4 : selected = null"
+                    >
+                      <div class="_collapsible__header">
+                        <h4 class="h4 _collapsible__title" itemtype="https://schema.org/Question">
+                          <span class="_text-orange font-regular" style="margin-right: 8px">04.</span>
+                          <span class="font-medium" itemprop="name">How can Perspective help me with Breeze?</span>
+                        </h4>
+                      </div>
+                      <span class="_collapsible__plus-sign"></span>
+                    </div>
+                  </div>
+                  <div
+                    data-role="content"
+                    style=""
+                    x-ref="container4"
+                    x-bind:style="selected == 4 ? 'max-height: ' + $refs.container4.scrollHeight + 'px' : ''"
+                  >
+                    <div class="_collapsible__content" style="display: flex" itemtype="https://schema.org/Answer">
+                      <div class="_collapsible__empty"></div>
+                      <div class="_collapsible__col">
+                        <p class="article__text" itemprop="text">
+                          Perspective's certified Magento developers can provide fast installation and support for
+                          Breeze, ensuring a smooth integration with your existing store. Their expertise will help you
+                          take full advantage of Breeze's features and performance improvements.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- 5 -->
+                  <div data-role="collapsible" class="_collapsible__item" :class="{'active': selected == 5}">
+                    <div
+                      data-role="trigger"
+                      class="_collapsible__trigger"
+                      @click="selected !== 5 ? selected = 5 : selected = null"
+                    >
+                      <div class="_collapsible__header">
+                        <h4 class="h4 _collapsible__title" itemtype="https://schema.org/Question">
+                          <span class="_text-orange font-regular" style="margin-right: 8px">05.</span>
+                          <span class="font-medium" itemprop="name"
+                            >How does Breeze compare to the Hyva theme for Magento 2?</span
+                          >
+                        </h4>
+                      </div>
+                      <span class="_collapsible__plus-sign"></span>
+                    </div>
+                  </div>
+                  <div
+                    data-role="content"
+                    style=""
+                    x-ref="container5"
+                    x-bind:style="selected == 5 ? 'max-height: ' + $refs.container5.scrollHeight + 'px' : ''"
+                  >
+                    <div class="_collapsible__content" style="display: flex" itemtype="https://schema.org/Answer">
+                      <div class="_collapsible__empty"></div>
+                      <div class="_collapsible__col">
+                        <p class="article__text" itemprop="text">
+                          Breeze focuses on reducing JS stack complexity and script evaluation time, while Hyva
+                          emphasizes a minimalistic and clean frontend approach. If you're unsure which theme is right
+                          for your store, consult Perspective's expert developers to help you make the best decision.
                         </p>
                       </div>
                     </div>
@@ -645,7 +709,174 @@
           </section>
         </div>
       </main>
-      <footer id="section-contacts"></footer>
+      <footer id="section-contacts" class="footer-alt">
+        <div class="footer__container _container">
+          <div class="footer__content _grid-2-col">
+            <div class="_grid-2-col__col">
+              <div class="footer__contacts contacts-footer">
+                <div class="contacts-footer__col">
+                  <div class="contacts-footer__image">
+                    <img src="./media/contact-image.png" alt="" />
+                  </div>
+                  <div class="contacts-footer__content">
+                    <div class="contacts-footer__name h3">Viktor Klimovych</div>
+                    <div class="contacts-footer__pos body-16">Head of Business Development</div>
+                    <p class="contacts-footer__text contacts-footer__text--dt">
+                      Have any questions? <br />
+                      Feel free to reach out to me directly!
+                    </p>
+                    <div class="contacts-footer__links">
+                      <ul class="links-footer links-footer--dt">
+                        <li class="links-footer__item">
+                          <a href="mailto:order@perspectiveteam.com">
+                            <img src="./media/links/tg.svg" alt="" />
+                          </a>
+                        </li>
+                        <li class="links-footer__item">
+                          <a href="">
+                            <img src="./media/links/email.svg" alt="" />
+                          </a>
+                        </li>
+                        <li class="links-footer__item">
+                          <a href="https://www.linkedin.com/company/perspective-magento-team">
+                            <img src="./media/links/ln.svg" alt="" />
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <p class="contacts-footer__text contacts-footer__text--mob">
+                Have any questions? <br />
+                Feel free to reach out to me directly!
+              </p>
+              <div class="contacts-footer__links">
+                <ul class="links-footer links-footer--mob">
+                  <li class="links-footer__item">
+                    <a href="mailto:order@perspectiveteam.com">
+                      <img src="./media/links/tg.svg" alt="" />
+                    </a>
+                  </li>
+                  <li class="links-footer__item">
+                    <a href="">
+                      <img src="./media/links/email.svg" alt="" />
+                    </a>
+                  </li>
+                  <li class="links-footer__item">
+                    <a href="https://www.linkedin.com/company/perspective-magento-team">
+                      <img src="./media/links/ln.svg" alt="" />
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div
+              class="_grid-2-col__col"
+              x-data="{
+                ...initForm({
+                  'formUniqueId' : 'one_of_us',
+                  'url' : 'https://perspectiveteam.com/perspective_forms/index/submit/', 
+                  'gtmEventName' : 'sent_cv_form'
+                }),
+                ...formValidation.global(document.getElementById('form_one_of_us'))
+              }"
+            >
+              <h2 class="h2 footer-alt__title">Ready to take your business to the next level?</h2>
+              <p>We are here to help you. Ask about The PayPal Checkout</p>
+              <form
+                enctype="multipart/form-data"
+                id="form_one_of_us"
+                action="https://perspectiveteam.com/perspective_forms/index/submit/"
+                method="post"
+                class="get-started__form form-contact"
+                @submit="submitForm($event)"
+                novalidate="true"
+                data-hs-cf-bound="true"
+              >
+                <div class="form-contact__body">
+                  <input
+                    type="text"
+                    name="first_name"
+                    class="form-contact__input form-contact__input--white"
+                    placeholder="Name"
+                    required=""
+                    x-on:input="validate($el, false)"
+                  />
+                  <input
+                    type="tel"
+                    name="phone"
+                    class="form-contact__input form-contact__input--white"
+                    placeholder="Phone"
+                    required=""
+                    data-pristine-phone-custom="1,2"
+                    x-on:input="validate($el, false)"
+                  />
+                  <input
+                    type="email"
+                    name="email"
+                    class="form-contact__input form-contact__input--white validate-email"
+                    placeholder="E-mail"
+                    required=""
+                    x-on:input="validate($el, false)"
+                  />
+                  <input
+                    type="text"
+                    name="details"
+                    class="form-contact__input form-contact__input--white"
+                    placeholder="About you"
+                    required=""
+                    x-on:input="validate($el, false)"
+                  />
+                  <input type="hidden" name="type" value="b25lX29mX3Vz" />
+
+                  <div class="form-contact__attache form-contact__attache--white contact-attache">
+                    <label for="attache-one_of_us"> Attach </label>
+                    <input
+                      type="file"
+                      name="Attache"
+                      class="contact-attache__input"
+                      id="attache-one_of_us"
+                      title="Only 1 file accepted."
+                      @change="handleChangeAttachInput($event.target)"
+                      @click="removeAttachedFile()"
+                    />
+                    <div
+                      data-form-one_of_us="attache-file"
+                      class="contact-attache__file _hidden"
+                      @click="removeAttachedFile()"
+                    ></div>
+                  </div>
+                  <button
+                    type="submit"
+                    class="form-contact__submit footer__button _button _button--white-bg"
+                    :disabled="isLoading"
+                    :style="isLoading &amp;&amp; { pointerEvents:'none' }"
+                  >
+                    <div x-show="isLoading" class="_button__loader" style="display: none">
+                      <div class="lds-roller" style="transform: scale(0.5)">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                      </div>
+                    </div>
+                    <span class="_button__text"> Contact our specialist </span>
+                    <span
+                      class="_button__text-overlay _button__text-overlay--black"
+                      style="clip: rect(0px, 0px, 24px, 0px)"
+                    >
+                      Contact our specialist
+                    </span>
+                    <span class="_button__overlay _button__overlay--hover"></span>
+                    <span class="_button__overlay _button__overlay--active"></span>
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   </body>
 </html>

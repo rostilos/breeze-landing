@@ -76,9 +76,31 @@
   }
   &__button {
     margin-top: 32px;
-    max-width: fit-content;
+    height: 64px;
+    padding-left: 56px;
+    padding-right: 56px;
+    ._button__text {
+      font-size: 24px;
+      line-height: 32px;
+    }
+
     @media screen and (max-width: @screen-lg) {
       margin-top: 240px;
+    }
+    @media screen and (max-width: @screen-lg) {
+      ._button__text {
+        font-size: 20px;
+        line-height: 32px;
+      }
+    }
+    @media screen and (max-width: @screen-xsm) {
+      ._button__text {
+        font-size: 18px;
+        line-height: 32px;
+      }
+    }
+    @media screen and (min-width: @screen-xsm) {
+      max-width: fit-content;
     }
   }
 }
@@ -86,9 +108,6 @@
   background: @soft-grey-bg;
   &__title {
     margin-bottom: 60px;
-    @media screen and (max-width: @screen-lg) {
-      padding-top: 48px;
-    }
     @media screen and (max-width: @screen-lg) {
       margin-bottom: 32px;
     }
@@ -239,6 +258,144 @@
   }
 }
 
-.cert-badges{
+.cert-badges {
   display: flex;
+  width: 100%;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 40px;
+  &__item {
+    @media screen and (max-width: @screen-md) {
+      display: none;
+    }
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+      @media screen and (max-width: @screen-lg) {
+        max-width: 70px;
+      }
+      @media screen and (max-width: @screen-sm) {
+        max-width: 34px;
+      }
+    }
+    &--core {
+      flex-direction: column;
+      text-align: center;
+      
+      height: 100%;
+      .dt {
+        @media screen and (max-width: @screen-md) {
+          display: none;
+        }
+      }
+      img.mob {
+        max-width: 540px;
+        @media screen and (min-width: @screen-md) {
+          display: none;
+        }
+      }
+      @media screen and (max-width: @screen-md) {
+        flex-grow: 1;
+        flex-basis: 100%;
+        max-width: none;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+      }
+      img {
+        max-width: none;
+      }
+    }
+    &--empty {
+      flex-grow: 1;
+      @media screen and (min-width: 1835px) {
+        display: none;
+      }
+    }
+  }
+}
+
+.section-services {
+  &__body {
+    padding: 112px 144px;
+    background-color: @soft-grey-bg;
+    @media screen and (max-width: @screen-2xl) {
+      padding: 80px 50px;
+    }
+    @media screen and (max-width: @screen-xl) {
+      padding: 80px 40px;
+    }
+    @media screen and (max-width: @screen-lg) {
+      padding: 60px 20px;
+    }
+    @media screen and (max-width: @screen-md) {
+      padding: 40px 16px;
+    }
+    @media screen and (max-width: @screen-sm) {
+      margin-left: -16px;
+      margin-right: -16px;
+    }
+  }
+  &__title {
+    margin-bottom: 56px;
+    @media screen and (max-width: @screen-xl) {
+      margin-bottom: 40px;
+    }
+    @media screen and (max-width: @screen-lg) {
+      margin-bottom: 32px;
+    }
+  }
+}
+.services-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  column-gap: 48px;
+  @media screen and (max-width: @screen-sm) {
+    grid-template-columns: 1fr;
+  }
+  &__item {
+    padding: 28px 0;
+    @media screen and (max-width: @screen-2xl) {
+      padding: 24px 0;
+    }
+    @media screen and (max-width: @screen-lg) {
+      padding: 20px 0;
+    }
+    border-top: 1px solid #e0e0e0;
+    display: flex;
+    align-items: center;
+    margin-bottom: 0;
+
+    &:last-child,
+    &:nth-child(7) {
+      border-bottom: 1px solid #e0e0e0;
+    }
+  }
+  &__image {
+    margin-right: 20px;
+    img {
+      width: 40px;
+      height: 100%;
+      object-position: center;
+      object-fit: contain;
+      display: block;
+    }
+  }
+}
+.section-faq {
+  padding-top: 0 !important;
+  &__title {
+    margin-bottom: 56px;
+    @media screen and (max-width: @screen-xl) {
+      margin-bottom: 40px;
+    }
+    @media screen and (max-width: @screen-lg) {
+      margin-bottom: 32px;
+    }
+  }
 }

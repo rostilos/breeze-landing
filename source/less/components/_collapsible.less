@@ -1,137 +1,160 @@
 ._collapsible {
-    border-bottom: 1px solid @soft-grey;
-    @media screen and (max-width: @screen-sm){
-        margin-left: -15px;
-        margin-right: -15px;
-        & > div > * {
-            margin-right: 15px;
-            margin-left: 15px;
-        }
+  border-bottom: 1px solid @soft-grey;
+  @media screen and (max-width: @screen-sm) {
+    margin-left: -15px;
+    margin-right: -15px;
+    & > div > * {
+      margin-right: 15px;
+      margin-left: 15px;
     }
-    [data-role="content"]{
-        max-height: 0;
-        overflow: hidden;
-        transition: .4s all linear;
+  }
+  [data-role="content"] {
+    max-height: 0;
+    overflow: hidden;
+    transition: 0.4s all linear;
+  }
+  &__header {
+    flex-grow: 1;
+  }
+  &__content {
+    display: flex;
+    padding-bottom: 24px;
+  }
+  &__empty {
+    display: block;
+    flex-grow: 1;
+   
+    @media screen and (min-width: @screen-2xl){
+        width: 320px;
+        flex: 0 0 320px;
+        margin-right: 8px;
     }
-    &__title{
-        font-weight: 500;
-        margin-right: 40px;
-        @media screen and (max-width: @screen-xl){
-            margin-right:24px;
-        }
-        @media screen and (max-width: @screen-lg){
-            margin-right:16px;
-        }
-        @media screen and (max-width: @screen-md){
-            font-weight: 600;
-            margin-right:8px;
-        }
+    @media screen and (min-width: @screen-xl){
+        width: 160px;
+        flex: 0 0 160px;
     }
-    &__item {
-        padding: 24px 0;
-        border-top: 1px solid @soft-grey;
-        display: flex;
-        justify-content: space-between;
+  }
+  &__title {
+    font-weight: 500;
+    margin-right: 40px;
+    display: flex;
+    span {
+      &:first-child {
+        @media screen and (min-width: @screen-2xl){
+            width: 320px;
+            flex: 0 0 320px;
+        }
+        @media screen and (min-width: @screen-xl){
+            width: 160px;
+            flex: 0 0 160px;
+        }
+      }
+      &:nth-child(2) {
+        flex-grow: 1;
+        max-width: 848px;
+      }
+    }
+    @media screen and (max-width: @screen-xl) {
+      margin-right: 24px;
+    }
+    @media screen and (max-width: @screen-lg) {
+      margin-right: 16px;
+    }
+    @media screen and (max-width: @screen-md) {
+      font-weight: 600;
+      margin-right: 8px;
+    }
+  }
+  &__item {
+    padding: 24px 0;
+    border-top: 1px solid @soft-grey;
+    display: flex;
+    justify-content: space-between;
 
-        &::after {
-            content: "";
-            display: block;
-        }
-        @media screen and (max-width: @screen-md) {
-            padding: 16px 0;
-        }
+    &::after {
+      content: "";
+      display: block;
     }
-    &__item.active {
-        ._collapsible__plus-sign:before {
-            opacity: 0;
-        }
+    @media screen and (max-width: @screen-md) {
+      padding: 16px 0;
     }
-    &__locate {
-        margin: 0;
-        color: @soft-grey;
+  }
+  &__item.active {
+    ._collapsible__plus-sign:before {
+      opacity: 0;
+    }
+  }
+  &__locate {
+    margin: 0;
+    color: @soft-grey;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    &:before {
+      content: "";
+      display: block;
+      width: 24px;
+      height: 24px;
+      margin-right: 4px;
+      background-image: url("data:image/svg+xml,%3Csvg width='24' height='25' viewBox='0 0 24 25' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M8.67738 4.9037C9.5588 4.02228 10.7543 3.5271 12.0008 3.5271C13.2473 3.5271 14.4428 4.02228 15.3242 4.9037C16.2056 5.78512 16.7008 6.98058 16.7008 8.2271C16.7008 9.47362 16.2056 10.6691 15.3242 11.5505C14.6095 12.2652 13.6883 12.726 12.7008 12.8747V20.9629C12.7008 20.9629 12.6301 21.3401 12.0058 21.3401C11.3814 21.3401 11.3008 20.9629 11.3008 20.9629V12.8747C10.3133 12.726 9.3921 12.2652 8.67738 11.5505C7.79596 10.6691 7.30078 9.47362 7.30078 8.2271C7.30078 6.98058 7.79596 5.78512 8.67738 4.9037ZM12.0008 4.9271C11.1256 4.9271 10.2862 5.27478 9.66733 5.89365C9.04846 6.51252 8.70078 7.35188 8.70078 8.2271C8.70078 9.10231 9.04846 9.94168 9.66733 10.5606C10.2862 11.1794 11.1256 11.5271 12.0008 11.5271C12.876 11.5271 13.7154 11.1794 14.3342 10.5606C14.9531 9.94168 15.3008 9.10231 15.3008 8.2271C15.3008 7.35188 14.9531 6.51252 14.3342 5.89365C13.7154 5.27478 12.876 4.9271 12.0008 4.9271Z' fill='%23949494'/%3E%3C/svg%3E%0A");
+    }
+  }
+  &__trigger {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    cursor: pointer;
+  }
+  &__plus-sign {
+    position: relative;
+    height: 22px;
+    width: 22px;
+    &:after,
+    &:before {
+      content: "";
+      display: block;
+      height: 22px;
+      width: 2px;
+      background: @soft-grey;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transition: all 0.4s ease-in-out;
+    }
+    &:after {
+      transform: rotate(90deg);
+    }
+    &:before {
+    }
+  }
+  &__button {
+    display: none;
+    @media screen and(min-width:@screen-md) {
+      margin-top: 24px;
+      &--desktop {
         display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        &:before {
-            content: "";
-            display: block;
-            width: 24px;
-            height: 24px;
-            margin-right: 4px;
-            background-image: url("data:image/svg+xml,%3Csvg width='24' height='25' viewBox='0 0 24 25' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M8.67738 4.9037C9.5588 4.02228 10.7543 3.5271 12.0008 3.5271C13.2473 3.5271 14.4428 4.02228 15.3242 4.9037C16.2056 5.78512 16.7008 6.98058 16.7008 8.2271C16.7008 9.47362 16.2056 10.6691 15.3242 11.5505C14.6095 12.2652 13.6883 12.726 12.7008 12.8747V20.9629C12.7008 20.9629 12.6301 21.3401 12.0058 21.3401C11.3814 21.3401 11.3008 20.9629 11.3008 20.9629V12.8747C10.3133 12.726 9.3921 12.2652 8.67738 11.5505C7.79596 10.6691 7.30078 9.47362 7.30078 8.2271C7.30078 6.98058 7.79596 5.78512 8.67738 4.9037ZM12.0008 4.9271C11.1256 4.9271 10.2862 5.27478 9.66733 5.89365C9.04846 6.51252 8.70078 7.35188 8.70078 8.2271C8.70078 9.10231 9.04846 9.94168 9.66733 10.5606C10.2862 11.1794 11.1256 11.5271 12.0008 11.5271C12.876 11.5271 13.7154 11.1794 14.3342 10.5606C14.9531 9.94168 15.3008 9.10231 15.3008 8.2271C15.3008 7.35188 14.9531 6.51252 14.3342 5.89365C13.7154 5.27478 12.876 4.9271 12.0008 4.9271Z' fill='%23949494'/%3E%3C/svg%3E%0A");
-        }
+      }
     }
-    &__trigger {
+    @media screen and(max-width:@screen-md) {
+      &--mobile {
         display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
-        cursor: pointer;
+      }
     }
-    &__plus-sign {
-        position: relative;
-        height: 22px;
-        width: 22px;
-        &:after,
-        &:before {
-            content: "";
-            display: block;
-            height: 22px;
-            width: 2px;
-            background: @soft-grey;
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transition: all 0.4s ease-in-out;
-        }
-        &:after {
-            transform: rotate(90deg);
-        }
-        &:before {
-        }
+  }
+  &__list {
+    margin-bottom: 24px;
+    @media screen and (max-width: @screen-md) {
+      margin-bottom: 16px;
     }
-    &__content{
-        display: grid;
-        @media screen and (min-width:@screen-md){
-            grid-template-columns: 1fr 1fr;
-            column-gap: 60px;
-        }
-        @media screen and (min-width:@screen-lg){
-            column-gap: 80px;
-        }
-
-        @media screen and (max-width:@screen-md){
-            margin-bottom: 24px;
-        }
+  }
+  &__list-legend {
+    margin-bottom: 16px;
+    font-weight: 600;
+  }
+  &__text {
+    @media screen and (max-width: @screen-md) {
+      margin-bottom: 30px;
     }
-    &__button{
-        display: none;
-        @media screen and(min-width:@screen-md){
-            margin-top: 24px;
-            &--desktop{
-                display: flex;
-            }
-        }
-        @media screen and(max-width:@screen-md){
-            &--mobile{
-                display: flex;
-            }
-        }
-    }
-    &__list{
-        margin-bottom: 24px;
-        @media screen and (max-width:@screen-md){
-            margin-bottom: 16px;
-        }
-    }
-    &__list-legend{
-        margin-bottom: 16px;
-        font-weight: 600;
-
-    }
-    &__text{
-        @media screen and (max-width:@screen-md){
-            margin-bottom: 30px;
-        }
-    }
+  }
 }
